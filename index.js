@@ -221,7 +221,7 @@ class ServerlessDynamodbLocal {
                 if (!source.table) {
                     throw new Error("seeding source \"table\" property not defined");
                 }
-                seeder.locateSeeds(dynamodb.doc.batchWrite.bind(dynamodb.doc), source.sources || [], source.table)
+                seeder.writeSeeds(dynamodb.doc.batchWrite.bind(dynamodb.doc), source.sources || [], source.table)
             });
         } else {
             this.serverlessLog("Skipping seeding: DynamoDB Local is not available for stage: " + this.stage);
